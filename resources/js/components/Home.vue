@@ -12,7 +12,7 @@
                 </form>
             </div>
         </div>
-        <table class="table mt-3">
+        <table class="table table-responsive mt-3">
             <thead>
                 <tr>
                     <th scope="col">#</th>
@@ -201,7 +201,7 @@ export default {
         },
         createContact(){
             var phonereg = "^[\+](243)(81|84|85|99|97|82)[0-9]?[0-9]{7}$";
-            const match = this.form.telephone.match(phonereg);
+            const matchPhone = this.form.telephone.match(phonereg);
 
             if(!matchPhone){
                 this.phoneInValid = true;

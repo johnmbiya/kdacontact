@@ -19,6 +19,7 @@ class SearchController extends Controller
 
         foreach ($searchResults as $value) {
             $item = [
+                'id' => $value->searchable->id,
                 'nom' => $value->searchable->nom,
                 'postnom' => $value->searchable->postnom,
                 'prenom' => $value->searchable->prenom,
