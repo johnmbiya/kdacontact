@@ -25,10 +25,8 @@ class Contact extends Model implements Searchable
 
     public function getSearchResult(): SearchResult
      {
-       
-         return new \Spatie\Searchable\SearchResult(
+        return new \Spatie\Searchable\SearchResult(
             $this,
-            $this->nom,
-         );
+            $this->nom );
      }
 }

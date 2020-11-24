@@ -2,13 +2,13 @@
     <div class="container">
         <p><h2>Liste des contacts</h2></p>
         <div class="d-flex">
-            <div class="actions justify-content-start">
-                <button type="button" class="btn btn-primary" @click="ajouterContact()">Ajouter un contact</button>
+            <div class="actions justify-content-start mr-2">
+                <button type="button" class="btn btn-primary" @click="ajouterContact()"><span class="d-none d-md-block"><i class="fa fa-user-plus mr-2"></i> Ajouter un contact</span><i class="d-md-none fa fa-user-plus"></i></button>
             </div>
             <div class="search-form ml-auto">
-                <form class="form-inline my-2 my-lg-0" @submit.prevent="search()">
-                    <input class="form-control mr-sm-2" v-model="formSeach.q" type="search" name="q" placeholder="Search" aria-label="Search" required>
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Recherche</button>
+                <form class=" d-flex" @submit.prevent="search()">
+                    <input class="form-control mr-2" @keydown="search()" v-model="formSeach.q" type="search" name="q" placeholder="Recherche" aria-label="Search" required>
+                    <button class="btn btn-outline-primary my-sm-0" type="submit"><i class="fa fa-search"></i></button>
                 </form>
             </div>
         </div>
@@ -27,8 +27,8 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="contact in contacts" :key="contact.id">
-                    <th scope="row">{{ contact.id }}</th>
+                <tr v-for="(contact, index) in contacts" :key="contact.id">
+                    <th scope="row">{{ index + 1 }}</th>
                     <td class="small">{{ contact.nom }}</td>
                     <td class="small">{{ contact.postnom }}</td>
                     <td class="small">{{ contact.prenom }}</td>
@@ -38,7 +38,7 @@
                     <td class="small">{{ contact.birth }}</td>
                     <td>
                         <a href="#" data-id="contact.id" @click="editContact(contact)">
-                            <i class="fa fa-edit"></i>
+                            <i class="fa fa-edit text-dark"></i>
                         </a>
                         |
                         <a href="#" @click="deleteContact(contact.id)">
